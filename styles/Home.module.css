@@ -1,5 +1,7 @@
 .container {
   padding: 0 2rem;
+  position: relative;
+  background-image: url('../public/flowers.jpg');
 }
 
 .main {
@@ -43,6 +45,10 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  width: 40%;
+  padding: 2rem 0;
 }
 
 .title,
