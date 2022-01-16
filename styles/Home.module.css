@@ -1,7 +1,6 @@
 .container {
   padding: 0 2rem;
   position: relative;
-  background-image: url('../public/flowers.jpg');
 }
 
 .main {
@@ -12,6 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 999;
+  position: relative;
 }
 
 .footer {
@@ -46,7 +47,7 @@
   line-height: 1.15;
   font-size: 3rem;
   color: white;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   min-width: 350px;
   padding: 2rem 3rem;
 }

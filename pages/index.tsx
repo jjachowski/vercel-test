@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
+import flowers from '../public/flowers.jpg';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   const weddingDate = new Date(2022, 5, 30, 17);
@@ -40,9 +42,10 @@ const Home: NextPage = () => {
           height: '100vh',
           width: '100vw',
           display: 'block',
+          zIndex: 0,
         }}
       >
-        {/* <Image src={flowers} layout='responsive' /> */}
+        <Image src={flowers} layout='fill' objectFit='cover' />
       </div>
 
       <Head>
