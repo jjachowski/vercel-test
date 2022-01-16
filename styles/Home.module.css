@@ -44,14 +44,26 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
   color: white;
   background: rgba(0, 0, 0, 0.7);
-  width: 40%;
-  padding: 2rem 0;
+  min-width: 350px;
+  padding: 2rem 3rem;
 }
 
-.title,
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+    width: 80%;
+  }
+}
+
+.title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .description {
   text-align: center;
 }
@@ -59,7 +71,7 @@
 .description {
   margin: 4rem 0;
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
 }
 
 .code {

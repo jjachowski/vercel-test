@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
-  const weddingDate = new Date(2022, 5, 30);
+  const weddingDate = new Date(2022, 5, 30, 17);
   const [days, setDays] = useState<number>();
   const [seconds, setSeconds] = useState<number>();
   const [minutes, setMinutes] = useState<number>();
@@ -52,14 +52,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Ślub za <br />
-          {days} dni <br />
-          {hours} godzin <br />
-          {minutes} minut
-          <br />
-          {seconds} sekund
-        </h1>
+        <div className={styles.title}>
+          <div>Ślub za</div>
+          <div>{days} dni</div>
+          <div>{hours} godzin</div>
+          <div>{minutes} minut</div>
+          <div>{seconds} sekund</div>
+        </div>
       </main>
     </div>
   );
