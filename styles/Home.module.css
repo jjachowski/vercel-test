@@ -54,7 +54,8 @@
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 2rem;
-    width: 80%;
+    min-width: 200px;
+    padding: 2rem 1rem;
   }
 }
 
