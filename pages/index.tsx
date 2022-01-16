@@ -4,15 +4,14 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import flowers from '../public/flowers.jpg';
 import Image from 'next/image';
+const weddingDate = new Date(2022, 5, 30, 17);
 
+const diff = () => weddingDate.getTime() - new Date().getTime();
 const Home: NextPage = () => {
-  const weddingDate = new Date(2022, 5, 30, 17);
   const [days, setDays] = useState<number>();
   const [seconds, setSeconds] = useState<number>();
   const [minutes, setMinutes] = useState<number>();
   const [hours, setHours] = useState<number>();
-
-  const diff = () => weddingDate.getTime() - new Date().getTime();
 
   useEffect(() => {
     const interval = setInterval(() => {
