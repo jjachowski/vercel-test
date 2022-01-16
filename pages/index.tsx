@@ -45,7 +45,12 @@ const Home: NextPage = () => {
           zIndex: 0,
         }}
       >
-        <Image src={flowers} layout='fill' objectFit='cover' />
+        <Image
+          src={flowers}
+          layout='fill'
+          objectFit='cover'
+          alt='background iamge with leafs'
+        />
       </div>
 
       <Head>
