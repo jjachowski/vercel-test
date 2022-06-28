@@ -4,30 +4,44 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import flowers from '../public/flowers.jpg';
 import Image from 'next/image';
-const weddingDate = new Date(2022, 5, 30, 17);
 
+const weddingDate = new Date(2022, 5, 30, 17);
 const diff = () => weddingDate.getTime() - new Date().getTime();
+
 const Home: NextPage = () => {
   const [days, setDays] = useState<number>();
   const [seconds, setSeconds] = useState<number>();
   const [minutes, setMinutes] = useState<number>();
   const [hours, setHours] = useState<number>();
+  const [married, setMarried] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const ms = diff();
-      const d = Math.floor(ms / 1000 / 60 / 60 / 24);
-      setDays(d);
+    const ms = diff();
+    let interval: NodeJS.Timer;
+    if (ms < 0) {
+      setMarried(true);
+    } else {
+      interval = setInterval(() => {
+        const ms = diff();
 
-      const hr = Math.floor(ms / 1000 / 60 / 60) % 60;
-      setHours(hr);
+        if (ms < 0) {
+          setMarried(true);
+        }
 
-      const min = Math.floor(ms / 1000 / 60) % 60;
-      setMinutes(min);
+        const d = Math.floor(ms / 1000 / 60 / 60 / 24);
+        setDays(d);
 
-      const sec = Math.floor(ms / 1000) % 60;
-      setSeconds(sec);
-    }, 1000);
+        const hr = Math.floor(ms / 1000 / 60 / 60) % 24;
+        setHours(hr);
+
+        const min = Math.floor(ms / 1000 / 60) % 60;
+        setMinutes(min);
+
+        const sec = Math.floor(ms / 1000) % 60;
+        setSeconds(sec);
+      }, 1000);
+    }
+
     return () => clearInterval(interval);
   }, []);
 
@@ -60,11 +74,17 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.title}>
-          <div>Ślub za</div>
-          <div>{days} dni</div>
-          <div>{hours} godzin</div>
-          <div>{minutes} minut</div>
-          <div>{seconds} sekund</div>
+          {married ? (
+            <div>Już po ślubie!!! 🤵🏻👰🏼‍♀️🎉🎉🎉</div>
+          ) : (
+            <>
+              <div>Ślub za</div>
+              <div>{days} dni</div>
+              <div>{hours} godzin</div>
+              <div>{minutes} minut</div>
+              <div>{seconds} sekund</div>
+            </>
+          )}
         </div>
       </main>
     </div>
